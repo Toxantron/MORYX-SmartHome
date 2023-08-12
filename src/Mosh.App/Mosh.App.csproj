@@ -7,6 +7,7 @@
   <ItemGroup>
 	<PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="6.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.20" />
+    <PackageReference Include="Moryx.Drivers.Mqtt" Version="6.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 
     <PackageReference Include="Moryx.Runtime.Endpoints" />
@@ -27,6 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Mosh.EnergyManager\Mosh.EnergyManager.csproj" />
+    <ProjectReference Include="..\Mosh.Protocols.Shelly\Mosh.Protocols.Shelly.csproj" />
     <ProjectReference Include="..\Mosh\Mosh.csproj" />
     <ProjectReference Include="..\Mosh.Resources\Mosh.Resources.csproj" />
   </ItemGroup>
