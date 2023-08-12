@@ -1,8 +1,13 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.Serialization;
+using Microsoft.Extensions.Logging;
+using Moryx.AbstractionLayer.Drivers.Message;
 using Moryx.AbstractionLayer.Resources;
+using Moryx.Protocols.Shelly;
 using Moryx.Serialization;
 using Mosh.Capabilities;
+using Mosh.Protocols.Shelly;
 
 namespace Mosh.Resources
 {
@@ -14,13 +19,34 @@ namespace Mosh.Resources
         public int Value { get; set; }
 
         [ResourceReference(ResourceRelationType.Extension)]
-        public MyResource Reference { get; set; }
+        public IMessageDriver<object> MessageDriver { get; set; }
 
         protected override void OnInitialize()
         {
             base.OnInitialize();
 
             Capabilities = new SomeCapabilities{Value = Value};
+
+            if(MessageDriver != null)
+            {
+                MessageDriver.Received += OnMessageReceived;
+            }
+        }
+
+        private void OnMessageReceived(object sender, object message)
+        {
+            switch (message)
+            {
+                case ShellyStatusUpdate status:
+                    Logger.LogInformation("Shelly {0}:{1} in state {2} with power {3}", status.Prefix, status.Switch, status.IsOn, status.CurrentPower);
+                    break;
+            }
+        }
+
+        [EntrySerialize]
+        public void SetOutput(string name)
+        {
+            MessageDriver.Send(new ShellyCommandMessage(name, ShellyCommand.Toggle));
         }
     }
 }

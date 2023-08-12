@@ -1,4 +1,5 @@
 ﻿using Moryx.Communication;
+using Mosh.Protocols.Shelly;
 using System.Text;
 
 namespace Moryx.Protocols.Shelly
@@ -10,27 +11,24 @@ namespace Moryx.Protocols.Shelly
         Toggle,
         Status_Update
     }
-    public class ShellyCommandMessage : IByteSerializable
+
+    /// <summary>
+    /// Command message for TOPIC_PREFIX/command/{SwitchTopic}
+    /// </summary>
+    public class ShellyCommandMessage : ShellyTopicMessage, IByteSerializable
     {
-        public ShellyCommandMessage()
+        public ShellyCommandMessage() : base()
         {
         }
 
-        public ShellyCommandMessage(string prefix, ShellyCommand command)
+        public ShellyCommandMessage(string prefix, ShellyCommand command) : base(prefix)
         {
-            Prefix = prefix;
             Command = command;
         }
 
-        public string Prefix { get; private set; }
-
         public ShellyCommand Command { get; private set; }
 
-        public int Switch { get; set; }
-
         public int ToggleBack { get; set; }
-
-        public string SwitchTopic => $"switch:{Switch}";
 
         public void FromBytes(byte[] bytes)
         {

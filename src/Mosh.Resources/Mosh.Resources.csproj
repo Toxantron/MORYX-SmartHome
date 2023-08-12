@@ -9,6 +9,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Mosh.Protocols.Shelly\Mosh.Protocols.Shelly.csproj" />
 		<ProjectReference Include="..\Mosh\Mosh.csproj" />
 	</ItemGroup>
 
