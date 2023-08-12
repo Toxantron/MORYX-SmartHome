@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+  <!-- Central package version management -->
+  <PropertyGroup>
+    <MoryxFrameworkVersion>6.1.3</MoryxFrameworkVersion>
+    <MoryxFactoryVersion>6.1.1</MoryxFactoryVersion>
+    <MoryxFrameworkWebVersion>6.1.0</MoryxFrameworkWebVersion>
+    <MoryxControlSystemVersion>6.4.0</MoryxControlSystemVersion>
+  </PropertyGroup>
+
+  <!-- Package versions for package references across all projects -->
+  <ItemGroup>
+    <!--3rd party dependencies-->
+    <PackageReference Update="Caliburn.Micro" Version="3.2.0" />
+    <PackageReference Update="Microsoft.NET.Test.Sdk" Version="16.7.1" />
+    <PackageReference Update="Moq" Version="4.14.6" />
+    <PackageReference Update="NUnit" Version="3.12.0" />
+    <PackageReference Update="NUnit3TestAdapter" Version="4.5.0" />
+
+    <!-- Framework dependencies -->
+    <PackageReference Update="Moryx" Version="$(MoryxFrameworkVersion)" />
+    <PackageReference Update="Moryx.Model.PostgreSQL" Version="$(MoryxFrameworkVersion)" />
+    <PackageReference Update="Moryx.Model.Sqlite" Version="$(MoryxFrameworkVersion)" />
+    <PackageReference Update="Moryx.Asp.Extensions" Version="$(MoryxFrameworkVersion)" />
+    <PackageReference Update="Moryx.Runtime" Version="$(MoryxFrameworkVersion)" />
+    <PackageReference Update="Moryx.Runtime.Endpoints" Version="$(MoryxFrameworkVersion)" />
+    <PackageReference Update="Moryx.Runtime.Kernel" Version="$(MoryxFrameworkVersion)" />
+    <PackageReference Update="Moryx.CommandCenter.Web" Version="$(MoryxFrameworkVersion)" />
+    <PackageReference Update="Moryx.TestTools.UnitTest" Version="$(MoryxFrameworkVersion)" />
+    <PackageReference Update="Moryx.AbstractionLayer" Version="$(MoryxFrameworkVersion)" />
+    <PackageReference Update="Moryx.Notifications" Version="$(MoryxFrameworkVersion)" />
+    <PackageReference Update="Moryx.AbstractionLayer.TestTools" Version="$(MoryxFrameworkVersion)" />
+    <PackageReference Update="Moryx.Resources.Management" Version="$(MoryxFrameworkVersion)" />
+    <PackageReference Update="Moryx.Products.Management" Version="$(MoryxFrameworkVersion)" />
+    <PackageReference Update="Moryx.AbstractionLayer.Resources.Endpoints" Version="$(MoryxFrameworkVersion)" />
+    <PackageReference Update="Moryx.AbstractionLayer.Products.Endpoints" Version="$(MoryxFrameworkVersion)" />
+
+    <!-- Framework Web dependencies -->
+    <PackageReference Update="Moryx.Resources.Web" Version="$(MoryxFrameworkWebVersion)" />
+    <PackageReference Update="Moryx.Products.Web" Version="$(MoryxFrameworkWebVersion)" />
+
+    <!-- ControlSystem dependencies -->
+    <PackageReference Update="Moryx.Launcher" Version="$(MoryxControlSystemVersion)" />
+
+  </ItemGroup>
+
+</Project>
