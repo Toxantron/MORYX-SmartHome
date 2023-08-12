@@ -1,0 +1,26 @@
+{
+  "MaxImporterWait": 20,
+  "Importers": [
+    {
+      "PluginName": "DefaultImporter"
+    }
+  ],
+  "TypeStrategies": [],
+  "InstanceStrategies": [
+    {
+      "TargetType": "MyApplication.Products.MyProductInstance",
+      "PluginName": "SkipInstancesStrategy"
+    }
+  ],
+  "LinkStrategies": [],
+  "RecipeStrategies": [
+    {
+      "$type": "Moryx.Products.Management.GenericRecipeConfiguration, Moryx.Products.Management",
+      "PluginName": "GenericRecipeStrategy",
+      "JsonColumn": "Text8",
+      "PropertyConfigs": [],
+      "TargetType": "Moryx.AbstractionLayer.Recipes.ProductRecipe"
+    }
+  ],
+  "ConfigState": "Generated"
+}
