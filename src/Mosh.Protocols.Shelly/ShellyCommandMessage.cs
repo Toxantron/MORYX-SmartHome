@@ -15,15 +15,26 @@ namespace Moryx.Protocols.Shelly
     /// <summary>
     /// Command message for TOPIC_PREFIX/command/{SwitchTopic}
     /// </summary>
-    public class ShellyCommandMessage : ShellyTopicMessage, IByteSerializable
+    public class ShellyCommandMessage : IByteSerializable
     {
-        public ShellyCommandMessage() : base()
+        public ShellyCommandMessage()
         {
         }
 
-        public ShellyCommandMessage(string prefix, ShellyCommand command) : base(prefix)
+        public ShellyCommandMessage(string prefix, ShellyCommand command)
         {
+            Prefix = prefix;
             Command = command;
+        }
+
+        public string? Prefix { get; set; }
+
+        public int Switch { get; set; }
+
+        public string SwitchTopic
+        {
+            get => $"switch:{Switch}";
+            set => Switch = int.Parse(value.Split(':')[1]);
         }
 
         public ShellyCommand Command { get; private set; }

@@ -38,7 +38,10 @@ namespace Mosh.Resources
             switch (message)
             {
                 case ShellyStatusUpdate status:
-                    Logger.LogInformation("Shelly {0}:{1} in state {2} with power {3}", status.Prefix, status.Switch, status.IsOn, status.CurrentPower);
+                    Logger.LogInformation("Shelly output {0}:{1} in state {2} with power {3}", status.Prefix, status.Switch, status.State, status.CurrentPower);
+                    break;
+                case ShellyInputEvent input:
+                    Logger.LogInformation("Shelly input {0}:{1} in state {2}", input.Prefix, input.Input, input.State);
                     break;
             }
         }
