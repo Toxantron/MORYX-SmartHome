@@ -12,9 +12,9 @@ namespace Mosh.Protocols.Shelly
     /// Message received on TOPIC_PREFIX/status/{SwitchTopic}
     /// </summary>
     [DataContract]
-    public class ShellyStatusUpdate
+    public class ShellySwitchStatus : IPowerStatus
     {
-        public ShellyStatusUpdate()
+        public ShellySwitchStatus()
         {
         }
 
