@@ -4,9 +4,10 @@
   <!-- Central package version management -->
   <PropertyGroup>
     <MoryxFrameworkVersion>6.1.3</MoryxFrameworkVersion>
-    <MoryxFactoryVersion>6.1.1</MoryxFactoryVersion>
+    <MoryxFactoryVersion>6.2.1</MoryxFactoryVersion>
     <MoryxFrameworkWebVersion>6.1.2</MoryxFrameworkWebVersion>
-    <MoryxControlSystemVersion>6.4.1</MoryxControlSystemVersion>
+    <MoryxControlSystemVersion>6.4.4</MoryxControlSystemVersion>
+    <MoryxProcessDataVersion>6.0.1</MoryxProcessDataVersion>
   </PropertyGroup>
 
   <!-- Package versions for package references across all projects -->
@@ -35,6 +36,9 @@
     <PackageReference Update="Moryx.Products.Management" Version="$(MoryxFrameworkVersion)" />
     <PackageReference Update="Moryx.AbstractionLayer.Resources.Endpoints" Version="$(MoryxFrameworkVersion)" />
     <PackageReference Update="Moryx.AbstractionLayer.Products.Endpoints" Version="$(MoryxFrameworkVersion)" />
+	  
+    <!-- Factory dependencies -->
+    <PackageReference Update="Moryx.ProcessData" Version="$(MoryxFactoryVersion)" />
 
     <!-- Framework Web dependencies -->
     <PackageReference Update="Moryx.Resources.Web" Version="$(MoryxFrameworkWebVersion)" />
@@ -42,6 +46,12 @@
 
     <!-- ControlSystem dependencies -->
     <PackageReference Update="Moryx.Launcher" Version="$(MoryxControlSystemVersion)" />
+
+    <!-- Process Data -->
+    <PackageReference Update="Moryx.ProcessData.Monitor" Version="$(MoryxProcessDataVersion)" />
+    <PackageReference Update="Moryx.ProcessData.InfluxDbListener" Version="$(MoryxProcessDataVersion)" />
+    <PackageReference Update="Moryx.ProcessData.SpreadsheetListener" Version="$(MoryxProcessDataVersion)" />
+    <PackageReference Update="Moryx.ProcessData.Adapter.ResourceManagement" Version="$(MoryxProcessDataVersion)" />
 
   </ItemGroup>
 

@@ -1,0 +1,22 @@
+{
+  "Listeners": [
+    {
+      "$type": "Moryx.ProcessData.InfluxDbListener.InfluxDbListenerConfig, Moryx.ProcessData.InfluxDbListener",
+      "PluginName": "InfluxDbListener",
+      "Host": "localhost",
+      "Port": 8086,
+      "Username": null,
+      "Password": null,
+      "DatabaseName": "moryx",
+      "ReportIntervalMs": 500,
+      "ListenerName": "InfluxListener",
+      "MeasurandConfigs": [
+        {
+          "Name": "device_power",
+          "IsEnabled": true
+        }
+      ]
+    }
+  ],
+  "ConfigState": "Generated"
+}

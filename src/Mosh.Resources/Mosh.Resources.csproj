@@ -6,6 +6,7 @@
 	
 	<ItemGroup>
 		<PackageReference Include="Moryx.AbstractionLayer" />
+		<PackageReference Include="Moryx.ProcessData" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -22,6 +22,8 @@ namespace Mosh.Protocols.Shelly
 
         public int Switch { get; set; }
 
+        public int Channel => Switch;
+
         public string SwitchTopic
         {
             get => $"switch:{Switch}";
@@ -33,5 +35,6 @@ namespace Mosh.Protocols.Shelly
 
         [DataMember(Name = "apower")]
         public double CurrentPower { get; set; }
+
     }
 }

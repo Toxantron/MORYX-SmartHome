@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Mosh.Protocols.Shelly
 {
-    public interface IPowerStatus
+    public interface IPowerStatus : IShellyMessage
     {
+        /// <summary>
+        /// Channel on the device
+        /// </summary>
+        int Channel { get; }
+
         /// <summary>
         /// Current power
         /// </summary>
-        double CurrentPower { get; set; }
+        double CurrentPower { get; }
     }
 }

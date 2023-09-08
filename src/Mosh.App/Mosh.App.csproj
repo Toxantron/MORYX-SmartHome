@@ -21,6 +21,11 @@
     <PackageReference Include="Moryx.Products.Management" />
     <PackageReference Include="Moryx.Products.Web" />
     <PackageReference Include="Moryx.AbstractionLayer.Products.Endpoints" />
+
+    <!-- MORYX Process Data Monitor -->
+    <PackageReference Include="Moryx.ProcessData.Monitor" />
+    <PackageReference Include="Moryx.ProcessData.InfluxDbListener" />
+    <PackageReference Include="Moryx.ProcessData.Adapter.ResourceManagement" />
     
     <PackageReference Include="Moryx.Launcher" />
 

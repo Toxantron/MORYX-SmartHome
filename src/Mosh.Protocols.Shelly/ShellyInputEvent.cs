@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mosh.Protocols.Shelly
 {
-    public class ShellyInputEvent
+    public class ShellyInputEvent : IShellyMessage
     {
         public string Prefix { get; set; }
 

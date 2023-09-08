@@ -15,7 +15,7 @@ namespace Moryx.Protocols.Shelly
     /// <summary>
     /// Command message for TOPIC_PREFIX/command/{SwitchTopic}
     /// </summary>
-    public class ShellyCommandMessage : IByteSerializable
+    public class ShellyCommandMessage : IByteSerializable, IShellyMessage
     {
         public ShellyCommandMessage()
         {
