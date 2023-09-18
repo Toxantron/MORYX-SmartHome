@@ -29,6 +29,13 @@ namespace Mosh.Resources
         [DataMember, EntrySerialize]
         public int Channel { get; set; }
 
+        [EntrySerialize, ReadOnly(true)]
+        public double CurrentPower { get; set; }
+
+        private DateTime _lastUpdate;
+        [EntrySerialize, ReadOnly(true)]
+        public string LastUpdate => _lastUpdate.ToString("yy-MM-dd HH:mm");
+
         protected override void OnInitialize()
         {
             base.OnInitialize();
@@ -44,10 +51,17 @@ namespace Mosh.Resources
             switch (message)
             {
                 case IPowerStatus powerStatus when powerStatus.Prefix == Prefix && powerStatus.Channel == Channel:
-                    var measurement = new Measurement("device_power");
+                    // Avoid redundant measurements. Difference of less than 1W is not reported within a 15min time frame
+                    if (Math.Abs(CurrentPower - powerStatus.CurrentPower) < 1 
+                        && (DateTime.Now - _lastUpdate).TotalMinutes < 15)
+                        return;
+
+                    var measurement = new Measurement("devices");
                     measurement.Add(new DataTag("device", Name));
-                    measurement.Add(new DataField("power", powerStatus.CurrentPower));
+                    measurement.Add(new DataField("power", CurrentPower = powerStatus.CurrentPower));
                     ProcessDataOccurred?.Invoke(this, measurement);
+
+                    _lastUpdate = DateTime.Now;
                     break;
             }
         }
