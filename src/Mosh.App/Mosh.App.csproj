@@ -28,8 +28,9 @@
     <PackageReference Include="Moryx.ProcessData.Adapter.ResourceManagement" />
     
     <PackageReference Include="Moryx.Launcher" />
-
-    <PackageReference Include="Wibu.CodeMeter" Version="7.21.0" />
+	  
+    <!-- Analytics -->
+	<PackageReference Include="Yarp.ReverseProxy" Version="2.0.1" />
   </ItemGroup>
 
   <ItemGroup>

@@ -69,6 +69,9 @@ namespace Mosh.App
                 c.CustomOperationIds(api => ((ControllerActionDescriptor)api.ActionDescriptor).MethodInfo.Name);
                 c.CustomSchemaIds(type => type.ToString());
             });
+
+            services.AddReverseProxy()
+               .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
             #endregion
 
             var app = builder.Build();
@@ -96,6 +99,8 @@ namespace Mosh.App
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.MapReverseProxy();
 
             app.UseEndpoints(endpoints =>
             {
