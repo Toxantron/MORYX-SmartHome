@@ -8,6 +8,7 @@
     <MoryxFrameworkWebVersion>6.1.2</MoryxFrameworkWebVersion>
     <MoryxControlSystemVersion>6.4.4</MoryxControlSystemVersion>
     <MoryxProcessDataVersion>6.0.1</MoryxProcessDataVersion>
+    <MoryxAnalyticsVersion>6.1.1</MoryxAnalyticsVersion>
   </PropertyGroup>
 
   <!-- Package versions for package references across all projects -->
@@ -52,6 +53,10 @@
     <PackageReference Update="Moryx.ProcessData.InfluxDbListener" Version="$(MoryxProcessDataVersion)" />
     <PackageReference Update="Moryx.ProcessData.SpreadsheetListener" Version="$(MoryxProcessDataVersion)" />
     <PackageReference Update="Moryx.ProcessData.Adapter.ResourceManagement" Version="$(MoryxProcessDataVersion)" />
+
+    <!-- Analytics -->
+    <PackageReference Update="Moryx.Analytics.Server" Version="$(MoryxAnalyticsVersion)" />
+    <PackageReference Update="Moryx.Analytics.Web" Version="$(MoryxAnalyticsVersion)" />
 
   </ItemGroup>
 

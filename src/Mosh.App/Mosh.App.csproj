@@ -30,6 +30,7 @@
     <PackageReference Include="Moryx.Launcher" />
 	  
     <!-- Analytics -->
+    <PackageReference Include="Moryx.Analytics.Web" />
 	<PackageReference Include="Yarp.ReverseProxy" Version="2.0.1" />
   </ItemGroup>
 
