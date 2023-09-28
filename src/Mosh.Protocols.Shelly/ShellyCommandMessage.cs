@@ -15,7 +15,7 @@ namespace Moryx.Protocols.Shelly
     /// <summary>
     /// Command message for TOPIC_PREFIX/command/{SwitchTopic}
     /// </summary>
-    public class ShellyCommandMessage : IByteSerializable, IShellyMessage
+    public class ShellyCommandMessage : IByteSerializable
     {
         public ShellyCommandMessage()
         {
@@ -34,7 +34,7 @@ namespace Moryx.Protocols.Shelly
         public string SwitchTopic
         {
             get => $"switch:{Switch}";
-            set => Switch = int.Parse(value.Split(':')[1]);
+            set { } // We do not receive this
         }
 
         public ShellyCommand Command { get; private set; }

@@ -27,7 +27,7 @@ namespace Mosh.Resources
         public string Prefix { get; set; }
 
         [DataMember, EntrySerialize]
-        public int Channel { get; set; }
+        public int ComponentId { get; set; }
 
         [EntrySerialize, ReadOnly(true)]
         public double CurrentPower { get; set; }
@@ -50,15 +50,15 @@ namespace Mosh.Resources
         {
             switch (message)
             {
-                case IPowerStatus powerStatus when powerStatus.Prefix == Prefix && powerStatus.Channel == Channel:
+                case ShellyStatusMessage status when status.Prefix == Prefix && status.ComponentId == ComponentId:
                     // Avoid redundant measurements. Difference of less than 1W is not reported within a 15min time frame
-                    if (Math.Abs(CurrentPower - powerStatus.CurrentPower) < 1 
+                    if (Math.Abs(CurrentPower - status.ActivePower) < 1 
                         && (DateTime.Now - _lastUpdate).TotalMinutes < 15)
                         return;
 
                     var measurement = new Measurement("devices");
-                    measurement.Add(new DataTag("device", Name));
-                    measurement.Add(new DataField("power", CurrentPower = powerStatus.CurrentPower));
+                    measurement.Add(new DataTag("name", Name));
+                    measurement.Add(new DataField("power", CurrentPower = status.ActivePower));
                     ProcessDataOccurred?.Invoke(this, measurement);
 
                     _lastUpdate = DateTime.Now;
