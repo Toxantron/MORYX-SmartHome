@@ -30,7 +30,7 @@ namespace Mosh.Resources
         public int ComponentId { get; set; }
 
         [EntrySerialize, ReadOnly(true)]
-        public double CurrentPower { get; set; }
+        public double ActivePower { get; set; }
 
         private DateTime _lastUpdate;
         [EntrySerialize, ReadOnly(true)]
@@ -52,13 +52,24 @@ namespace Mosh.Resources
             {
                 case ShellyStatusMessage status when status.Prefix == Prefix && status.ComponentId == ComponentId:
                     // Avoid redundant measurements. Difference of less than 1W is not reported within a 15min time frame
-                    if (Math.Abs(CurrentPower - status.ActivePower) < 1 
+                    if (Math.Abs(ActivePower - status.ActivePower) < 1 
                         && (DateTime.Now - _lastUpdate).TotalMinutes < 15)
                         return;
 
                     var measurement = new Measurement("devices");
+
                     measurement.Add(new DataTag("name", Name));
-                    measurement.Add(new DataField("power", CurrentPower = status.ActivePower));
+                    measurement.Add(new DataField("voltage", status.Voltage));
+                    measurement.Add(new DataField("power", ActivePower = status.ActivePower));
+
+                    // Recursively iterate hierarchy to determine room, floor and building
+                    Resource current = this;
+                    while (current.Parent is BuildingStructure building)
+                    {
+                        measurement.Add(new DataTag(building.ElementType.ToString("G").ToLower(), building.Name));
+                        current = building;
+                    }
+
                     ProcessDataOccurred?.Invoke(this, measurement);
 
                     _lastUpdate = DateTime.Now;

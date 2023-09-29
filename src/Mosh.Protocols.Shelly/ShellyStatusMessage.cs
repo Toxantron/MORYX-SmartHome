@@ -44,6 +44,9 @@ namespace Mosh.Protocols.Shelly
         [DataMember(Name = "apower")]
         public double ActivePower { get; set; }
 
+        [DataMember(Name = "voltage")]
+        public double Voltage { get; set; }
+
         public const string SwitchType = "switch";
 
         public const string InputType = "input";
