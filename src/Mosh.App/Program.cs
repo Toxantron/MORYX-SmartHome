@@ -8,6 +8,7 @@ using Moryx.Asp.Integration;
 using Moryx.Launcher;
 using Moryx.Model;
 using Moryx.Runtime.Kernel;
+using Moryx.Runtime.Modules;
 using Moryx.Tools;
 using System.Diagnostics.Metrics;
 using System.Globalization;
@@ -112,11 +113,13 @@ namespace Mosh.App
             #endregion
 
             app.Services.UseMoryxConfigurations("Config");
-            app.Services.StartMoryxModules();
+
+            var moduleManager = app.Services.GetRequiredService<IModuleManager>();
+            moduleManager.StartModules();
 
             app.Run();
 
-            app.Services.StopMoryxModules();
+            moduleManager.StopModules();
         }
     }
 }
