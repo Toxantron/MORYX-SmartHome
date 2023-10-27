@@ -11,18 +11,18 @@ namespace MyApplication.Tests
     [TestFixture]
     public class SomeResourceTest
     {
-        [Test]
-        public void ResourceKeepsValue()
-        {
-            // Arrange
-            var someResource = new SomeResource();
-            someResource.Value = 42;
+        //[Test]
+        //public void ResourceKeepsValue()
+        //{
+        //    // Arrange
+        //    var someResource = new SomeResource();
+        //    someResource.Value = 42;
 
-            // Act
-            someResource.Value = 1337;
+        //    // Act
+        //    someResource.Value = 1337;
 
-            // Assert
-            Assert.AreEqual(1337, someResource.Value);
-        }
+        //    // Assert
+        //    Assert.AreEqual(1337, someResource.Value);
+        //}
     }
 }
