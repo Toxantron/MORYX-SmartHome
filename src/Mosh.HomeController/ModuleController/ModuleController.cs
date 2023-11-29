@@ -5,13 +5,13 @@ using Moryx.Container;
 using Moryx.Runtime.Container;
 using Moryx.Runtime.Modules;
 
-namespace Mosh.EnergyManager
+namespace Mosh.HomeController
 {
     [Description("Description of your module")]
     //public class ModuleController : ServerModuleBase<ModuleConfig> // No facade export
     public class ModuleController : ServerModuleFacadeControllerBase<ModuleConfig>, IFacadeContainer<IMyFacade> // Facade export
     {
-        internal const string ModuleName = "EnergyManager";
+        internal const string ModuleName = "HomeController";
 
         public override string Name => ModuleName;
 
