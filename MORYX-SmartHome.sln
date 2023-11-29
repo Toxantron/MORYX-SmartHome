@@ -23,9 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mosh.Tests", "src\Tests\Mos
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mosh.Protocols.Shelly", "src\Mosh.Protocols.Shelly\Mosh.Protocols.Shelly.csproj", "{A0736658-8393-41FB-BD46-4C557ACB18AE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mosh.EnergyManager", "src\Mosh.EnergyManager\Mosh.EnergyManager.csproj", "{EF1DDA92-63AC-4CE7-AD13-8F983DAD91AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mosh.Energy.Manager", "src\Mosh.Energy.Manager\Mosh.Energy.Manager.csproj", "{EF1DDA92-63AC-4CE7-AD13-8F983DAD91AC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mosh.HomeController", "src\Mosh.HomeController\Mosh.HomeController.csproj", "{330E25D9-C934-4AD2-A2F7-CA22D0BB0D66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mosh.Home.Controller", "src\Mosh.Home.Controller\Mosh.Home.Controller.csproj", "{330E25D9-C934-4AD2-A2F7-CA22D0BB0D66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
