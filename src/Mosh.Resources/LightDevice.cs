@@ -1,10 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
-using Moryx.AbstractionLayer.Drivers.Message;
+﻿using Moryx.AbstractionLayer.Drivers.Message;
 using Moryx.AbstractionLayer.Resources;
 using Moryx.ProcessData;
-using Moryx.Protocols.Shelly;
 using Moryx.Serialization;
-using Mosh.Capabilities;
 using Mosh.Protocols.Shelly;
 using System;
 using System.Collections.Generic;
@@ -12,15 +9,13 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace Mosh.Resources
 {
-    [ResourceAvailableAs(typeof(IProcessDataPublisher))]
-    public class GeneralDevice : PublicResource, IProcessDataPublisher
+    public class LightDevice : PublicResource, IDevice
     {
-        [ResourceReference(ResourceRelationType.Extension)]
+        [ResourceReference(ResourceRelationType.Driver)]
         public IMessageDriver<object> MessageDriver { get; set; }
 
         [DataMember, EntrySerialize]
@@ -46,14 +41,8 @@ namespace Mosh.Resources
             }
         }
 
-        protected override void OnDispose()
+        public void SetState(DeviceState state)
         {
-            if (MessageDriver != null)
-            {
-                MessageDriver.Received -= OnMessageReceived;
-            }
-
-            base.OnDispose();
         }
 
         private void OnMessageReceived(object sender, object message)
@@ -62,7 +51,7 @@ namespace Mosh.Resources
             {
                 case ShellyStatusMessage status when status.Prefix == Prefix && status.ComponentId == ComponentId:
                     // Avoid redundant measurements. Difference of less than 1W is not reported within a 15min time frame
-                    if (Math.Abs(ActivePower - status.ActivePower) < 1 
+                    if (Math.Abs(ActivePower - status.ActivePower) < 1
                         && (DateTime.Now - _lastUpdate).TotalMinutes < 15)
                         return;
 

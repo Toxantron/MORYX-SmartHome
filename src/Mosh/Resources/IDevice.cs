@@ -13,5 +13,14 @@ namespace Mosh.Resources
     public interface IDevice : IPublicResource
     {
         double ActivePower { get; }
+
+        public void SetState(DeviceState state);
+    }
+
+    public enum DeviceState
+    {
+        On,
+        Off,
+        Toggle
     }
 }
