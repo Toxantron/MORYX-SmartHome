@@ -35,7 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mosh.EnergyManager\Mosh.EnergyManager.csproj" />
+    <ProjectReference Include="..\Mosh.EnergyManager\Mosh.Energy.Manager.csproj" />
     <ProjectReference Include="..\Mosh.Protocols.Shelly\Mosh.Protocols.Shelly.csproj" />
     <ProjectReference Include="..\Mosh\Mosh.csproj" />
     <ProjectReference Include="..\Mosh.Resources\Mosh.Resources.csproj" />

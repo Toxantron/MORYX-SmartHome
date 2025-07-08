@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mosh.Energy.Manager", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mosh.Home.Controller", "src\Mosh.Home.Controller\Mosh.Home.Controller.csproj", "{330E25D9-C934-4AD2-A2F7-CA22D0BB0D66}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mosh.Adapters.GridFrequency", "src\Mosh.Adapters.GridFrequency\Mosh.Adapters.GridFrequency.csproj", "{2871EE80-4F04-4F1E-ADC0-0EDFD3850375}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{330E25D9-C934-4AD2-A2F7-CA22D0BB0D66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{330E25D9-C934-4AD2-A2F7-CA22D0BB0D66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{330E25D9-C934-4AD2-A2F7-CA22D0BB0D66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2871EE80-4F04-4F1E-ADC0-0EDFD3850375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2871EE80-4F04-4F1E-ADC0-0EDFD3850375}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2871EE80-4F04-4F1E-ADC0-0EDFD3850375}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2871EE80-4F04-4F1E-ADC0-0EDFD3850375}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
